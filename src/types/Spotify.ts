@@ -69,7 +69,7 @@ export namespace Spotify {
         currently_playing_type: string;
         is_playing: boolean;
         item: Item | null;
-        progress_ms: number | null;
+        progress_ms: number;
         repeat_state: 'off' | 'track' | 'context';
         shuffle_state: boolean;
         timestamp: number;

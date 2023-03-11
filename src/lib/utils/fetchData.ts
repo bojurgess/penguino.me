@@ -7,8 +7,8 @@ export async function fetchData(options: FetchOptions) {
         body: options.body || null
     })
 
-    if (!response.ok) {
-        return Promise.reject(response)
+    if (response.status !== 200) {
+        return undefined
     } else {
         return response.json()
     }

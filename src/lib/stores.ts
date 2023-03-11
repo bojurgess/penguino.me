@@ -24,4 +24,4 @@ export function createCurrentlyPlaying() {
     }
 }
 
-const CurrentlyPlaying = createCurrentlyPlaying()
+export const CurrentlyPlaying = createCurrentlyPlaying()
