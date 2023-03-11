@@ -23,6 +23,5 @@
     <p>{$CurrentlyPlaying.item?.uri}</p>
     <p>{$CurrentlyPlaying.progress_ms}</p>
     <p>{$CurrentlyPlaying.is_playing}</p>
-
-    <button on:click={() => CurrentlyPlaying.refresh()}>Refresh</button>
 {/if}
+<button on:click={() => CurrentlyPlaying.refresh()}>Refresh</button>

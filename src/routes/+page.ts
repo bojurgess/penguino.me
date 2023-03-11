@@ -2,6 +2,6 @@
 import { CurrentlyPlaying } from '$lib/stores'
 
 export async function load() {
-    await CurrentlyPlaying.refresh()
+    CurrentlyPlaying.refresh()
     return {}
 }
