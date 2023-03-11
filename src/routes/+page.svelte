@@ -2,6 +2,8 @@
     import { CurrentlyPlaying } from "$lib/stores";
 	import { onMount } from "svelte";
 
+    import Main from '$components/spotify/Main.svelte'
+
     onMount(() => console.log($CurrentlyPlaying))
 </script>
 
