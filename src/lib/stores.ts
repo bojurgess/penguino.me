@@ -1,6 +1,7 @@
 import { writable } from 'svelte/store'
 import { fetchData } from './utils/fetchData';
 import { getProgressInfo, getProgressPercentage } from './utils/progressUtils';
+import { getColourPalette } from './utils/colourUtils';
 import type { Spotify } from '../types/Spotify'
 import type { ProgressInfo } from '../types/ProgressInfo';
 
@@ -58,5 +59,32 @@ export function createProgressData() {
     }
 }
 
+export function createColourPalette() {
+    const { subscribe, set, update } = writable();
+
+    return {
+        subscribe,
+        set: async (imgUrl: string) => {
+            set(await getColourPalette(imgUrl));
+            ColourPalette.subscribe((value: any) => {
+                CurrentColour.set(value[0].hex)
+            })
+        },
+    }
+}
+
+export function createCurrentColour() {
+    const { subscribe, set, update } = writable();
+
+    return {
+        subscribe,
+        set: (value: string) => {
+            set(value)
+        }
+    }
+}
+
 export const CurrentlyPlaying = createCurrentlyPlaying()
 export const ProgressData = createProgressData()
+export const ColourPalette = createColourPalette()
+export const CurrentColour = createCurrentColour()
