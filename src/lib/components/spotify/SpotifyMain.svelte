@@ -15,11 +15,9 @@
             if ($ProgressData.progress_ms + 1000 < $ProgressData.duration_ms) {
                 ProgressData.increment($ProgressData, ($ProgressData.progress_ms + 1000))
                 setTimeout(updateProgress, 1000)
-                console.log($ProgressData.progress_ms)
             } else {
                 ProgressData.refresh()
                 setTimeout(updateProgress, 1000)
-                console.log($ProgressData)
             }
         }
     }
