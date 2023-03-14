@@ -65,10 +65,10 @@ export namespace Spotify {
     }
 
     export interface CurrentlyPlaying {
-        context: Context | null;
+        context: Context;
         currently_playing_type: string;
         is_playing: boolean;
-        item: Item | null;
+        item: Item;
         progress_ms: number;
         repeat_state: 'off' | 'track' | 'context';
         shuffle_state: boolean;
