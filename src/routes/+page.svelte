@@ -1,9 +1,13 @@
-<script lang='ts'>
-    import { CurrentlyPlaying } from "$lib/stores";
+<script lang="ts">
+	import { CurrentlyPlaying } from '$lib/stores';
 
-    import SpotifyMain from '$components/spotify/SpotifyMain.svelte'
+	import SpotifyMain from '$components/spotify/SpotifyMain.svelte';
 </script>
 
-{#if $CurrentlyPlaying}
-    <SpotifyMain />
-{/if}
+<main>
+    {#if $CurrentlyPlaying}
+	    <SpotifyMain />
+    {:else}
+        <h1>Not playing anything</h1>
+    {/if}
+</main>
