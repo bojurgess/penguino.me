@@ -26,8 +26,8 @@
 </script>
 
 {#if $ProgressData}
-    <div class="flex text-white p-4 max-w-fit rounded-2xl" style="background-color: {$CurrentColour};">
-        <a href={$CurrentlyPlaying.item.album.uri}><img class="max-w-[256px] rounded-2xl" src={$CurrentlyPlaying.item.album.images[0].url} alt="Album cover" /></a>
+    <div class="flex text-white p-2 text-ellipsis overflow-hidden w-fit max-w-[600px] rounded-2xl" style="background-color: {$CurrentColour};">
+        <a href={$CurrentlyPlaying.item.album.uri}><img class="max-w-[200px] rounded-2xl" src={$CurrentlyPlaying.item.album.images[0].url} alt="Album cover" /></a>
         <div class="flex flex-col text-3xl px-8 justify-center">
             <a class="font-bold hover:underline" href={$CurrentlyPlaying.item.uri}><h2>{$CurrentlyPlaying.item?.name}</h2></a>
             <span class="flex text-xl hover:underline">
