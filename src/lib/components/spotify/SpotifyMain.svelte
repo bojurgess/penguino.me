@@ -2,7 +2,6 @@
 	import { CurrentlyPlaying, ProgressData, ColourPalette, CurrentColour } from '$lib/stores';
 	import { getProgressPercentage, getTime } from '$lib/utils/progressUtils';
 	import { onMount } from 'svelte';
-	import type { AnymatchFn } from 'vite';
 
 	let state: string = 'paused';
 	let audioContainer: HTMLAudioElement;
@@ -69,7 +68,7 @@
 					</audio>
 					<div class="tooltip tooltip-bottom" data-tip="Preview the Song 🎵">
                         <button
-						class="bg-white rounded-full text-black w-12 h-12 flex justify-center items-center"
+						class="bg-white rounded-full shadow-xl text-black w-12 h-12 flex justify-center items-center"
 						on:click={() => {
 							if (state === 'paused') {
 								audioContainer.play();

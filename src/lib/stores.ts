@@ -69,7 +69,7 @@ export function createColourPalette() {
 		set: async (imgUrl: string) => {
 			set(await getColourPalette(imgUrl));
 			ColourPalette.subscribe((value: any) => {
-				CurrentColour.set(value[4].hex);
+				CurrentColour.set(value[2].hex);
 			});
 		}
 	};
