@@ -4,6 +4,7 @@ import { getProgressInfo, getProgressPercentage } from './utils/progressUtils';
 import { getColourPalette } from './utils/colourUtils';
 import type { Spotify } from '../types/Spotify';
 import type { ProgressInfo } from '../types/ProgressInfo';
+import SpotifyMain from '$components/spotify/SpotifyMain.svelte';
 
 let NowPlaying: Spotify.CurrentlyPlaying;
 let Progress: ProgressInfo;

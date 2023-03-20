@@ -8,7 +8,9 @@ export async function fetchData(options: FetchOptions) {
 	});
 
 	if (response.status !== 200) {
-		return undefined;
+		return {
+			is_playing: false,
+		};
 	} else {
 		return response.json();
 	}

@@ -73,6 +73,7 @@ export namespace Spotify {
 		repeat_state: 'off' | 'track' | 'context';
 		shuffle_state: boolean;
 		timestamp: number;
+		status?: number;
 	}
 }
 
