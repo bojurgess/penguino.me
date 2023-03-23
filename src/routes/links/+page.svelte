@@ -52,7 +52,11 @@
 	let npPlaceholder: HTMLDivElement;
 
 	onMount(() => {
-		npPlaceholder.style.height = (titleText.offsetHeight.toString() + 'px');
+		if (!$CurrentlyPlaying.is_playing) {
+			npPlaceholder.style.height = (titleText.offsetHeight.toString() + 'px');
+		} else {
+			return;
+		}
 	})
 </script>
 
