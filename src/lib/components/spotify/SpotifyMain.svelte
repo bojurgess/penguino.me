@@ -84,7 +84,7 @@
 
 {#if $CurrentlyPlaying && $CurrentlyPlaying.is_playing}
 	{#if $ProgressData}
-		<div on:mouseenter={mouseEnter} on:mouseleave={mouseLeave} class="transition-colors flex flex-col sm:flex-row justify-center items-center text-white p-2 rounded-t-2xl border-2 w-fit bg-black bg-opacity-50" style="border-color: {$CurrentColour};" bind:this={containerElement}>
+		<div on:mouseenter={mouseEnter} on:mouseleave={mouseLeave} class="transition-colors flex flex-col sm:flex-row justify-center items-center text-white p-2 rounded-t-2xl border-2 w-fit bg-black bg-opacity-50" style="border-color: {$HoveredColour};" bind:this={containerElement}>
 			{#key $CurrentlyPlaying.item.name}
 			<a href={$CurrentlyPlaying.item.album.uri}
 				><img

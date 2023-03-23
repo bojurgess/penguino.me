@@ -1,7 +1,7 @@
 <script lang="ts">
 	import SpotifyMain from '$components/spotify/SpotifyMain.svelte';
 	import LinksMain from '$components/linkArray/LinksMain.svelte';
-	import { CurrentlyPlaying, CurrentColour, HoveredColour } from '$lib/stores';
+	import { CurrentlyPlaying, CurrentColour, HoveredColour, ColourPalette } from '$lib/stores';
 	
 	import { LinkType } from '../../types/LinkType';
 
@@ -50,8 +50,6 @@
 			}
 		}
 	]
-
-	console.log($CurrentlyPlaying)
 </script>
 
 <body class="w-screen h-screen flex flex-col justify-center items-center bg-neutral-900">
