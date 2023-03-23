@@ -1,4 +1,4 @@
 export enum LinkType {
-    "Clipboard",
-    "Link",
+	'Clipboard',
+	'Link'
 }
