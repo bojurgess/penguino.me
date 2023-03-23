@@ -27,6 +27,9 @@
 		await CurrentlyPlaying.refresh();
 		if ($CurrentlyPlaying.is_playing) {
 			await ColourPalette.set($CurrentlyPlaying.item.album.images[0].url);
+			const color: any = $CurrentColour
+
+			HoveredColour.set(color);
 			ProgressData.set($CurrentlyPlaying);
 			setTimeout(updateProgress, 1000);
 		} else {
@@ -46,6 +49,9 @@
 			} else {
 				await ProgressData.refresh();
 				await ColourPalette.set($CurrentlyPlaying.item.album.images[0].url);
+				const color: any = $CurrentColour
+
+				HoveredColour.set(color);
 				setTimeout(updateProgress, 1000);
 			}
 		}
