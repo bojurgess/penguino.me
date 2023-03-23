@@ -31,19 +31,19 @@
     // Find a better solution than a bunch of nested if statements cause it stops me from sleeping at night.
 </script>
 
-<section class="flex p-2 mb-4 border-2 bg-opacity-75 rounded-b-2xl transition-colors mt-2 min-w-[280px] bg-black bg-opacity 50" bind:this={linksContainer} style="border-color: {$HoveredColour};">
+<section class="flex mb-4 border-2 p-2 bg-opacity-75 rounded-b-2xl transition-colors mt-2 min-w-[280px] bg-black bg-opacity 50" bind:this={linksContainer} style="border-color: {$HoveredColour};">
     {#each links as link}
         {#if links.indexOf(link) === 0}
             {#if link.type === LinkType.Link}
-            <a href={link.attributes.url} class="w-full flex py-8 justify-center rounded-l-2xl tooltip tooltip-bottom" data-tip={link.attributes.content} style='background-color: {link.attributes.color};'><i class={`${link.attributes.icon} fa-2xl`}></i></a>
+            <a href={link.attributes.url} class="w-full flex py-8 justify-center rounded-bl-2xl tooltip tooltip-bottom" data-tip={link.attributes.content} style='background-color: {link.attributes.color};'><i class={`${link.attributes.icon} fa-2xl`}></i></a>
             {:else}
-            <button class="w-full flex py-8 justify-center rounded-l-2xl tooltip tooltip-bottom" data-tip={link.attributes.content} style='background-color: {link.attributes.color};' on:click={() => handleClipboard(link.attributes.content)} bind:this={ClipboardElement}><i class={`${link.attributes.icon} fa-2xl`}></i></button>
+            <button class="w-full flex py-8 justify-center rounded-bl-2xl tooltip tooltip-bottom" data-tip={link.attributes.content} style='background-color: {link.attributes.color};' on:click={() => handleClipboard(link.attributes.content)} bind:this={ClipboardElement}><i class={`${link.attributes.icon} fa-2xl`}></i></button>
             {/if}
         {:else if links.indexOf(link) === links.length - 1}
             {#if link.type === LinkType.Link}
-            <a href={link.attributes.url} class="w-full flex py-8 justify-center rounded-r-2xltooltip tooltip-bottom" data-tip={link.attributes.content} style='background-color: {link.attributes.color};'><i class={`${link.attributes.icon} fa-2xl`}></i></a>
+            <a href={link.attributes.url} class="w-full flex py-8 justify-center rounded-br-2xltooltip tooltip-bottom" data-tip={link.attributes.content} style='background-color: {link.attributes.color};'><i class={`${link.attributes.icon} fa-2xl`}></i></a>
             {:else}
-            <button class="w-full flex py-8 justify-center rounded-r-2xl tooltip tooltip-bottom" data-tip={link.attributes.content} style='background-color: {link.attributes.color};' on:click={() => handleClipboard(link.attributes.content)} bind:this={ClipboardElement}><i class={`${link.attributes.icon} fa-2xl`}></i></button>
+            <button class="w-full flex py-8 justify-center rounded-br-2xl tooltip tooltip-bottom" data-tip={link.attributes.content} style='background-color: {link.attributes.color};' on:click={() => handleClipboard(link.attributes.content)} bind:this={ClipboardElement}><i class={`${link.attributes.icon} fa-2xl`}></i></button>
             {/if}
         {:else}
             {#if link.type === LinkType.Link}
