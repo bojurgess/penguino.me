@@ -3,16 +3,11 @@
 	import { getProgressPercentage, getTime } from '$lib/utils/progressUtils';
 	import { onMount } from 'svelte';
 
-	export let data: {
-		imageurl: string;
-	};
-
 	let containerElement: HTMLDivElement;
 	let colorText: HTMLHeadingElement;
 
 	let state: string = 'paused';
 	let audioContainer: HTMLAudioElement;
-	let audioUrl: string = 'https://cdn.penguino.me/ronniemcnutt.mp3';
 	let volume = 0.4;
 
 	onMount(async () => {
@@ -83,16 +78,16 @@
 
 {#if $CurrentlyPlaying && $CurrentlyPlaying.is_playing}
 	{#if $ProgressData}
-		<div on:mouseenter={mouseEnter} on:mouseleave={mouseLeave} class="transition-colors flex text-white p-2 rounded-t-2xl border-2 w-fit bg-black bg-opacity-50" style="border-color: {$CurrentColour};" bind:this={containerElement}>
+		<div on:mouseenter={mouseEnter} on:mouseleave={mouseLeave} class="transition-colors flex flex-col sm:flex-row justify-center items-center text-white p-2 rounded-t-2xl border-2 w-fit bg-black bg-opacity-50" style="border-color: {$CurrentColour};" bind:this={containerElement}>
 			{#key $CurrentlyPlaying.item.name}
 			<a href={$CurrentlyPlaying.item.album.uri}
 				><img
-					class="max-w-[200px] rounded-2xl"
+					class="w-full max-w-[360px] sm:max-w-[200px] rounded-2xl"
 					src={$CurrentlyPlaying.item.album.images[0].url}
 					alt="Album cover"
 				/></a
 			>
-			<div class="flex flex-col text-2xl px-8 justify-center">
+			<div class="flex flex-col text-2xl px-2 sm:px-8 justify-center truncate text-ellipsis text-center sm:text-start items-center sm:items-start pt-2 sm:pt-0">
 				<a class="font-bold hover:underline w-fit" href={$CurrentlyPlaying.item.uri}
 					><h2 class="transition-colors" bind:this={colorText}>{$CurrentlyPlaying.item?.name}</h2></a
 				>
@@ -106,7 +101,7 @@
 						{/if}
 					{/each}
 				</span>
-				<div class="flex text-lg justify-between items-center w-full pt-4">
+				<div class="flex flex-col sm:flex-row text-lg justify-between items-center w-full pt-4">
 					<div class="w-fit flex items-center">
 						<span class="mr-2">{getTime($ProgressData.progress_ms)}</span>
 						<progress
@@ -114,13 +109,13 @@
 							value={getProgressPercentage($ProgressData.progress_ms, $ProgressData.duration_ms)}
 							max={100}
 						/>
-						<span class="ml-2 mr-8">{getTime($ProgressData.duration_ms)}</span>
+						<span class="ml-2 sm:mr-8">{getTime($ProgressData.duration_ms)}</span>
 					</div>
 					{#if $CurrentlyPlaying.item.preview_url}
 						<audio bind:this={audioContainer} bind:volume>
 							<source src={$CurrentlyPlaying.item.preview_url} type="audio/mpeg" />
 						</audio>
-						<div class="tooltip tooltip-right" data-tip="Preview the Song 🎵">
+						<div class="tooltip tooltip-right hidden sm:block" data-tip="Preview the Song 🎵">
 							<button
 								class="bg-white rounded-full shadow-xl text-black w-12 h-12 flex justify-center items-center"
 								on:click={() => {
@@ -146,44 +141,6 @@
 			{/key}
 		</div>
 	{/if}
-{:else}
-	<div class="flex text-white p-2 w-fit rounded-2xl bg-red-900">
-		<img class="max-w-[200px] rounded-2xl" src={data.imageurl} alt="Album cover" />
-		<div class="flex flex-col text-3xl px-8 justify-center">
-			<h2 class="font-bold">Beno</h2>
-			<h2 class="text-xl">swiggity swag</h2>
-			<div class="flex text-lg justify-between items-center w-full pt-4">
-				<span class="mr-2">{'0:23'}</span>
-				<progress class="progress w-full" value={23} max={100} />
-				<span class="ml-2 mr-8">{'4:20'}</span>
-				{#if audioUrl}
-					<audio bind:this={audioContainer} bind:volume>
-						<source src={audioUrl} type="audio/mpeg" />
-					</audio>
-					<div class="tooltip tooltip-bottom" data-tip="Preview the Song 🎵">
-						<button
-							class="bg-white rounded-full shadow-xl text-black w-12 h-12 flex justify-center items-center"
-							on:click={() => {
-								if (state === 'paused') {
-									audioContainer.play();
-									state = 'playing';
-								} else {
-									audioContainer.pause();
-									state = 'paused';
-								}
-							}}
-						>
-							{#if state === 'paused'}
-								<i class="fa-solid fa-play" />
-							{:else}
-								<i class="fa-solid fa-pause" />
-							{/if}
-						</button>
-					</div>
-				{/if}
-			</div>
-		</div>
-	</div>
 {/if}
 
 <style>

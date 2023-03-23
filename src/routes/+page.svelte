@@ -50,14 +50,22 @@
 			}
 		}
 	]
+
+	console.log($CurrentlyPlaying)
 </script>
 
 <body class="w-screen h-screen flex flex-col justify-center items-center bg-neutral-900">
-	<div class="flex flex-col rounded-xl">
-		{#if $CurrentlyPlaying.item.name}
+	<div class="flex flex-col rounded-xl p-2 sm:p-0">
+		{#if $CurrentlyPlaying.is_playing}
 			<h1 class="text-6xl text-center rounded-2xl mb-4 p-2 font-bold text-white w-full transition-colors shadow-lg" style="border-color: {$HoveredColour}; color: {$HoveredColour}">beno.</h1>
+			<SpotifyMain />
+		{:else}
+			<h1 class="border-2 rounded-t-2xl p-4 font-bold bg-black bg-opacity-50 text-4xl text-white">beno.</h1>
+			<div class="text-white flex justify-center items-center text-right bg-black bg-opacity-50 border-2 mt-2 px-4 py-4">
+				<i class="fa-brands fa-spotify fa-2xl mr-2"></i>
+				<p class="text-md font-semibold">I'm not listening to anything on spotify right now.</p>
+			</div>
 		{/if}
-		<SpotifyMain data={placeholderProps} />
 		<LinksMain {links} />
 	</div>
 </body>

@@ -31,7 +31,7 @@
     // Find a better solution than a bunch of nested if statements cause it stops me from sleeping at night.
 </script>
 
-<section class="flex p-2 mb-4 border-2 bg-opacity-75 rounded-b-2xl transition-colors mt-2 bg-black bg-opacity 50" bind:this={linksContainer} style="border-color: {$HoveredColour};">
+<section class="flex p-2 mb-4 border-2 bg-opacity-75 rounded-b-2xl transition-colors mt-2 min-w-[280px] bg-black bg-opacity 50" bind:this={linksContainer} style="border-color: {$HoveredColour};">
     {#each links as link}
         {#if links.indexOf(link) === 0}
             {#if link.type === LinkType.Link}
