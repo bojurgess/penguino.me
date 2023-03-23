@@ -10,7 +10,7 @@ export function getBrightness(hex: string) {
 	return (r * 299 + g * 587 + b * 114) / 1000;
 }
 
-export async function getColourPalette(imageUrl: string) {
+export async function getColourPalette(imageUrl: string): Promise<any[]> {
 	const palette = await Vibrant.from(imageUrl).getPalette();
 	const processedPalette = Object.entries(palette).map(([name, swatch]: any[]) => {
 		return {

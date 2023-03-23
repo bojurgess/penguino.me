@@ -70,7 +70,7 @@ export function createColourPalette() {
 		set: async (imgUrl: string) => {
 			set(await getColourPalette(imgUrl));
 			ColourPalette.subscribe((value: any) => {
-				CurrentColour.set(value[2].hex);
+				CurrentColour.set(value[1].hex);
 			});
 		}
 	};
@@ -91,3 +91,4 @@ export const CurrentlyPlaying = createCurrentlyPlaying();
 export const ProgressData = createProgressData();
 export const ColourPalette = createColourPalette();
 export const CurrentColour = createCurrentColour();
+export const HoveredColour = createCurrentColour();
