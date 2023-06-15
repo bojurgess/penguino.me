@@ -3,6 +3,7 @@ import { marked } from 'marked';
 
 marked.setOptions({
     mangle: false,
+    headerIds: false,
 })
 
 export const load: PageLoad = async ({ fetch }) => {
@@ -12,7 +13,6 @@ export const load: PageLoad = async ({ fetch }) => {
     return {
         avatar: 'https://cdn.penguino.me/profile/avatar.gif',
         banner: 'https://cdn.penguino.me/profile/banner.gif',
-        // markdown: marked.parse(md),
-        markdown: undefined
+        markdown: marked.parse(md),
     };
 }
