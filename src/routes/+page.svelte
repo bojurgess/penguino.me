@@ -1,2 +1,13 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+    export let data: {
+        avatar: string;
+        banner: string;
+        markdown: string;
+    }
+
+    import UserProfile from "$lib/components/UserProfile/UserProfile.svelte";
+</script>
+
+<UserProfile opts={data}>
+    {@html data.markdown}
+</UserProfile>
