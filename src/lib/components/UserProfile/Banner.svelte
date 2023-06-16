@@ -2,12 +2,11 @@
     export let src: string;
 </script>
 
-<img src={src} alt="banner" class="banner" />
+<img src={src} alt="banner" class="banner h-[128px] sm:h-[200px]" />
 
 <style lang="postcss">
     .banner {
         width: 100%;
-        height: 128px;
         object-fit: cover;
         border-radius: 6px;
         border-bottom-left-radius: 0;
