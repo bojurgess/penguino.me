@@ -11,7 +11,7 @@
     import UserProfile from "$lib/components/UserProfile/UserProfile.svelte";
 </script>
 
-<div class="flex justify-center items-center h-[100vh]">
+<div class="flex justify-center items-center min-h-[100%]">
     <UserProfile opts={data}>
         {@html data.markdown}
     </UserProfile>

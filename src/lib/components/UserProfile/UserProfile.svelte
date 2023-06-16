@@ -21,7 +21,7 @@
     };
 </script>
 
-<div class="w-96 sm:w-[38rem] h-fit bg-red-900 border-4 rounded-md border-red-600 flex flex-col">
+<div class="w-96 sm:w-[38rem] bg-red-900 border-4 rounded-md border-red-600 flex flex-col">
     <section id="top" class="relative">
             <Banner src={opts.banner} />
         <div class='absolute rounded-full border-8 border-red-900 w-fit h-fit left-1 top-14 sm:top-32 sm:left-2'>
