@@ -1,5 +1,6 @@
 import type { PageLoad } from './$types';
 import { marked } from 'marked';
+import { SpotifyStore } from '$lib/stores';
 
 marked.setOptions({
     mangle: false,
@@ -7,6 +8,8 @@ marked.setOptions({
 })
 
 export const load: PageLoad = async ({ fetch }) => {
+    SpotifyStore.init(fetch);
+
     const res = await fetch('/markdown/about.md');
     const md = await res.text();
 

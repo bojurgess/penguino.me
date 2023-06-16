@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { Link } from "$lib/types/Link";
+	import SpotifyWidget from "../Spotify/SpotifyWidget.svelte";
 
     import Avatar from "./Avatar.svelte";
     import Banner from "./Banner.svelte";
@@ -31,6 +32,9 @@
         <slot />
     </section>
     {/if}
+    <section id="Spotify" class="p-4 bg-black bg-opacity-60 mx-4 rounded-md">
+        <SpotifyWidget />
+    </section>
     <section id="links" class="p-4 px-16 m-4 bg-black bg-opacity-60 rounded-md flex justify-between">
         {#each opts.links as link}
             {#if link.href}
