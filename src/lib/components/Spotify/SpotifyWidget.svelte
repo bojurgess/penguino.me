@@ -69,7 +69,7 @@
                     </p>
                 </div>
                 <div>
-                    <progress class="progress w-full" value={progress} max={duration} />
+                    <progress class="w-full rounded-full h-2 bg-black bg-opacity-30" value={progress} max={duration} />
                     <span class="text-xs text-white flex justify-between w-full">
                         <p>{Math.floor(progress / 1000 / 60)}:{Math.floor(progress / 1000 % 60).toString().padStart(2, "0")}</p>
                         <p>{Math.floor(duration / 1000 / 60)}:{Math.floor(duration / 1000 % 60).toString().padStart(2, "0")}</p>
@@ -80,3 +80,20 @@
     </div>
     {/if}
 {/if}
+
+<style>
+    progress::-webkit-progress-bar {
+        background-color: #FFF;
+        border-radius: 6px;
+    }
+
+    progress::-webkit-progress-value {
+        background-color: #FFF;
+        border-radius: 6px;
+    }
+
+    progress::-moz-progress-bar {
+        background-color: #FFF;
+        border-radius: 6px;
+    }
+</style>
